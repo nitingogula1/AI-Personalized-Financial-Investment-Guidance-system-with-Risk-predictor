@@ -7,12 +7,17 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
+def _split_csv(value):
+    return [item.strip() for item in value.split(',') if item.strip()]
+
+
 class Config:
     """Base configuration."""
 
     # Flask
     SECRET_KEY = os.getenv('SECRET_KEY', 'dev-fallback-secret')
-    DEBUG = os.getenv('FLASK_ENV', 'development') == 'development'
+    FLASK_ENV = os.getenv('FLASK_ENV', 'development')
+    DEBUG = FLASK_ENV == 'development'
 
     # Local SQLite Database (use absolute path to avoid confusion)
     db_path = os.path.join(os.path.dirname(__file__), 'finvest_ai.db')
@@ -33,4 +38,8 @@ class Config:
     MAIL_DEFAULT_SENDER = os.getenv('MAIL_DEFAULT_SENDER', '')
 
     # CORS
-    FRONTEND_URL = os.getenv('FRONTEND_URL', 'http://localhost:5173')
+    FRONTEND_URL = os.getenv(
+        'FRONTEND_URL',
+        'https://ai-personalized-financial-investment-guidance-system-m5em83xcf.vercel.app,http://localhost:5173'
+    )
+    FRONTEND_URLS = _split_csv(FRONTEND_URL)

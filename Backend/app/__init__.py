@@ -24,7 +24,7 @@ def create_app():
     mail.init_app(app)
 
     # Enable CORS for React frontend
-    CORS(app, resources={r"/api/*": {"origins": app.config['FRONTEND_URL']}},
+    CORS(app, resources={r"/api/*": {"origins": app.config['FRONTEND_URLS']}},
          supports_credentials=True)
 
     # ── Register blueprints (routes) ──
