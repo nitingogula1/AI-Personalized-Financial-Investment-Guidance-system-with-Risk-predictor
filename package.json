@@ -1,0 +1,9 @@
+{
+  "name": "ai-personalized-financial-investment-guidance-system-with-risk-predictor",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "dev": "cd frontend && npm run dev -- --host 0.0.0.0"
+  }
+}

@@ -22,3 +22,5 @@ Thumbs.db
 
 # Project-specific
 frontend.zip
+.vercel
+.env*
