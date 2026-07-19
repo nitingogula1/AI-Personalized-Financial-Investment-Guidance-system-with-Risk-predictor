@@ -23,8 +23,13 @@ def create_app():
     db.init_app(app)
     mail.init_app(app)
 
-    # Enable CORS for React frontend
-    CORS(app, resources={r"/api/*": {"origins": app.config['FRONTEND_URLS']}},
+    # Enable CORS for React frontend (allows localhost and any Vercel deployments)
+    import re
+    allowed_origins = [
+        re.compile(r"^https://.*\.vercel\.app$"),
+        re.compile(r"^http://localhost:\d+$")
+    ]
+    CORS(app, resources={r"/api/*": {"origins": allowed_origins}},
          supports_credentials=True)
 
     # ── Register blueprints (routes) ──
