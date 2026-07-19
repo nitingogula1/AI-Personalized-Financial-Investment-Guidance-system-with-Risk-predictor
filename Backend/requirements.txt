@@ -7,6 +7,6 @@ bcrypt==4.2.0
 PyJWT==2.9.0
 python-dotenv==1.0.1
 gunicorn==23.0.0
-yfinance==0.2.40
+yfinance>=1.5.1
 numpy
 pandas
