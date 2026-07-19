@@ -5,7 +5,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://ai-financial-investment-backend.onrender.com/api/:path*"
+      "destination": "https://ai-personalized-financial-investment.onrender.com/api/:path*"
     },
     {
       "source": "/(.*)",
